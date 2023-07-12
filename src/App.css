@@ -1,6 +1,8 @@
 
 .grid-block {
     display: flex;
+    margin-left: 50px;
+    margin-top: 50px;
     flex-direction: column;
     align-content: flex-start;
     height: 170px;
@@ -44,7 +46,7 @@
 .popup::after {
     content: '';
     position: absolute;
-    left: 68px;
+    left: 75px;
     display: block;
     border: 10px solid transparent; border-top: 10px solid #000;
 }
@@ -53,11 +55,24 @@
     margin: 0;
 }
 
+.popupOptions {
+    top: -30px;
+}
+
 .closed {
     display: none;
 }
 
 .opened {
     display: block;
+}
+
+.displayInline {
+    display: inline-block;
+}
+
+.colorGrey {
+    margin: 0px 20px;
+    color: #959494;
 }
 

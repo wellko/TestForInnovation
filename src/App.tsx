@@ -44,6 +44,8 @@ function App() {
 
     const emptyCells: number[] = [];
 
+    const weekdays = ['Пн', ' ', ' Ср', ' ', 'Пт', ' ', ' '];
+
     for (let i = 1; i <= startDate; i++) {
         if (i <= startDate) {
             emptyCells.push(i);
@@ -78,6 +80,7 @@ function App() {
         <div className="App">
             <>
                 <div className='grid-block'>
+                    {weekdays.map(el => <div key={Math.random()} className='inactive-cell'> {el} </div>)}
                     {emptyCells.map(() => <div key={Math.random()} className='inactive-cell'/>)}
                     {days.map((el) => {
                         let color = '';
@@ -95,14 +98,46 @@ function App() {
                             className='active-cell'
                             style={{background: color}}
                             key={el.id}>
-                            <div className={popup === el.id? 'popup opened': 'popup closed'}>
+                            <div className={popup === el.id ? 'popup opened' : 'popup closed'}>
                                 <p>{el.contributions} - contributions</p>
                                 <p>{dayjs(el.id).format('ll')}</p>
                             </div>
                         </div>
                     })}
                 </div>
-
+                <div>
+                    <span className='colorGrey'>Меньше</span>
+                    <div onClick={() => onClick('0')} className='active-cell displayInline'>
+                        <div className={popup === '0' ? 'popup popupOptions opened' : 'popup closed'}>
+                            <span>0 contributions</span>
+                        </div>
+                    </div>
+                    <div onClick={() => onClick('1')} className='active-cell displayInline'
+                         style={{background: '#ACD5F2'}}>
+                        <div className={popup === '1' ? 'popup popupOptions opened' : 'popup closed'}>
+                            <span>1+ contributions</span>
+                        </div>
+                    </div>
+                    <div onClick={() => onClick('2')} className='active-cell displayInline'
+                         style={{background: '#7FA8C9'}}>
+                        <div className={popup === '2' ? 'popup popupOptions opened' : 'popup closed'}>
+                            <span>10+ contributions</span>
+                        </div>
+                    </div>
+                    <div onClick={() => onClick('3')} className='active-cell displayInline'
+                         style={{background: '#527BA0'}}>
+                        <div className={popup === '3' ? 'popup popupOptions opened' : 'popup closed'}>
+                            <span>20+ contributions</span>
+                        </div>
+                    </div>
+                    <div onClick={() => onClick('4')} className='active-cell displayInline'
+                         style={{background: '#254E77'}}>
+                        <div className={popup === '4' ? 'popup popupOptions opened' : 'popup closed'}>
+                            <span>30+ contributions</span>
+                        </div>
+                    </div>
+                    <span className='colorGrey'>Больше</span>
+                </div>
             </>
         </div>
     );

@@ -84,8 +84,11 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="container">
                 <div className='grid-block'>
+                    <div className='months'>
+                        {months.map(el => <div className='monthDescription' key={Math.random()}>{el}</div>)}
+                    </div>
                     {weekdays.map(el => <div key={Math.random()} className='inactive-cell'> {el} </div>)}
                     {emptyCells.map(() => <div key={Math.random()} className='inactive-cell'/>)}
                     {days.map((el) => {
@@ -110,9 +113,6 @@ function App() {
                             </div>
                         </div>
                     })}
-                    <div className='months'>
-                        {months.map(el => <div className='monthDescription' key={Math.random()}>{el}</div>)}
-                    </div>
                 </div>
                 <div>
                     <span className='colorGrey'>Меньше</span>

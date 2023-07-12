@@ -44,7 +44,14 @@ function App() {
 
     const emptyCells: number[] = [];
 
+    const months: string[] = [];
+
     const weekdays = ['Пн', ' ', ' Ср', ' ', 'Пт', ' ', ' '];
+
+    for (let i = 0; i<13; i++){
+        const month = dayjs(Date.now()).add(+i, 'month').format('MMM');
+        months.push(month);
+    }
 
     for (let i = 1; i <= startDate; i++) {
         if (i <= startDate) {
@@ -78,7 +85,6 @@ function App() {
 
     return (
         <div className="App">
-            <>
                 <div className='grid-block'>
                     {weekdays.map(el => <div key={Math.random()} className='inactive-cell'> {el} </div>)}
                     {emptyCells.map(() => <div key={Math.random()} className='inactive-cell'/>)}
@@ -104,6 +110,9 @@ function App() {
                             </div>
                         </div>
                     })}
+                    <div className='months'>
+                        {months.map(el => <div className='monthDescription' key={Math.random()}>{el}</div>)}
+                    </div>
                 </div>
                 <div>
                     <span className='colorGrey'>Меньше</span>
@@ -138,7 +147,6 @@ function App() {
                     </div>
                     <span className='colorGrey'>Больше</span>
                 </div>
-            </>
         </div>
     );
 }

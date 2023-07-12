@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+
+.grid-block {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 170px;
+    flex-wrap: wrap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.active-cell {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    background: #EDEDED;
+    margin: 1px;
+    position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.active-cell:hover {
+    border: 1px solid #000;
+    box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.inactive-cell {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    background: #FFF;
+    margin: 1px;
 }
 
-.App-link {
-  color: #61dafb;
+.popup {
+    position: absolute;
+    text-align: center;
+    top:-50px;
+    width: 150px;
+    left: -75px;
+    background: #000;
+    color: #FFFFFF;
+    z-index: 99;
+    border-radius: 3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.popup::after {
+    content: '';
+    position: absolute;
+    left: 68px;
+    display: block;
+    border: 10px solid transparent; border-top: 10px solid #000;
 }
+
+.popup p{
+    margin: 0;
+}
+
+.closed {
+    display: none;
+}
+
+.opened {
+    display: block;
+}
+

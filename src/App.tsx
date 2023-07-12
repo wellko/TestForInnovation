@@ -78,8 +78,8 @@ function App() {
         <div className="App">
             <>
                 <div className='grid-block'>
-                    {emptyCells.map(el => <div key={Math.random()} className='inactive-cell'/>)}
-                    {days.map((el, index) => {
+                    {emptyCells.map(() => <div key={Math.random()} className='inactive-cell'/>)}
+                    {days.map((el) => {
                         let color = '';
                         if (el.contributions >= 30) {
                             color = '#254E77';
